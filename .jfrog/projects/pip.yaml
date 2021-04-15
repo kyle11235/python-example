@@ -1,5 +1,5 @@
 version: 1
 type: pip
 resolver:
-  repo: kyle-pypi-virtual
+  repo: pypi
   serverId: art1

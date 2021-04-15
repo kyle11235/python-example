@@ -3,12 +3,12 @@
 from setuptools import setup
 
 setup(
-    name='jfrog-python-example',
-    version='1.0',
-    description='Project example for building Python project with JFrog products',
-    author='JFrog',
-    author_email='jfrog@jfrog.com',
-    url='https://github.com/jfrog/project-examples',
+    name='babel',
+    version='0.0.1',
+    description='my example',
+    author='someone',
+    author_email='someone@example.com',
+    url='https://github.com/kyle/python-example',
     packages=['pythonExample'],
     install_requires=['nltk'],
 )
