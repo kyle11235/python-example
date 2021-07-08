@@ -1,0 +1,9 @@
+
+vi ~/.pypirc
+
+[distutils]
+index-servers = local
+[local]
+repository: http://182.92.214.141:8081/artifactory/api/pypi/kyle-pypi-virtual
+username: kyle
+password: xxx

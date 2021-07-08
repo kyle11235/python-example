@@ -1,5 +1,102 @@
 # Python Example
 
+- repo 
+
+        - structure
+
+                - pypi remote
+                
+                        URL = https://files.pythonhosted.org
+                        registry URL = https://pypi.org
+                
+                - douban remote
+                
+                        url/registry both = http://pypi.douban.com/
+
+                .pypi
+                .pypi/aaa.html
+                .pypi/bbb.html
+                .pypi/babel.html (include all versions + download url)
+                        <a href="https://files.pythonhosted.org/packages/6d/56/503a8e4d4987d598d258a163308a03115a9e0f9ef69d6100ede3f81ea367/Babel-0.9.6-py2.4.egg#sha256=89c43eabe1eb606455c1921a595241b2c0c98dbb1b0aaaf35ddcf2e7428c9882">Babel-0.9.6-py2.4.egg</a><br/>
+
+        - metadata API
+
+                - art
+                http://182.92.214.141:8081/artifactory/api/pypi/pypi/simple/babel/
+
+                - pypi
+                https://pypi.org/simple/babel/
+
+                - douban
+                http://pypi.doubanio.com/simple/babel/
+
+- local
+
+        - guide
+        
+                https://www.kdocs.cn/l/srCwUSvEx?f=501
+
+        - config
+        
+                deploy -> ~/.pypirc
+                resolve -> ~/.pip/pip.conf
+
+                        - fix
+                        guide wrong '~/.pypic', should be '~/.pypirc' 
+        
+        - test
+        
+                fork https://github.com/kyle11235/python-examples
+
+                - install
+                pip3 install nltk --user
+
+                - package & upload
+                python setup.py sdist upload -r local
+
+        - test directly with url (no url configured in ~/.pypirc)
+
+                pip install babel --no-cache-dir --index-url=http://182.92.214.141:8081/artifactory/api/pypi/pypi/simple
+
+
+- python pipeline
+
+        - guide
+        
+                https://www.kdocs.cn/l/sLJoejbhC?f=501
+
+        - install cli
+       
+                curl -fL https://getcli.jfrog.io | sh
+                chmod 755 jfrog (night be necessary)
+                sudo mv jfrog /usr/local/bin/
+
+        - install
+       
+                pip3 install --upgrade pip --user (installed into /Users/kyle/Library/Python/3.8/bin)
+
+        - test
+        
+                - clone
+                
+                        fork https://github.com/kyle11235/python-examples
+
+                - config resolution
+
+                        jfrog rt pipc (add .jfrog/projects/pip.yaml, to set resolution repo, deploy repo is defined in pipeline) script)
+
+                - pipeline
+                
+                        python.groovy
+
+                        - error
+                        [Error] Failed determining module-name from 'setup.py' file: exit status 1
+                        
+                        - fix
+                        sh "jfrog rt pipi ... --module=jfrog-python-example"
+
+
+
 ## Overview
 This example demonstrates how to build a Python project with Artifactory, while collecting build-info.
 
